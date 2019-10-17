@@ -334,7 +334,7 @@ async def task():
 						if fixed_bossFlag0[i] == False:
 							fixed_bossFlag0[i] = True
 							await client.get_channel(channel).send( fixed_bossData[i][0] + ' ' + basicSetting[3] + '분 전 ' + fixed_bossData[i][3] +' [' +  fixed_bossTime[i].strftime('%H:%M:%S') + ']', tts=False)
-							await PlaySound(voice_client1, './sound/' + fixed_bossData[i][0] + '알림1.mp3')
+							#await PlaySound(voice_client1, './sound/' + fixed_bossData[i][0] + '알림1.mp3')
 
 				################ before_alert ################ 
 				if fixed_bossTime[i] <= priv and fixed_bossTime[i] > now:
@@ -342,7 +342,7 @@ async def task():
 						if fixed_bossFlag[i] == False:
 							fixed_bossFlag[i] = True
 							await client.get_channel(channel).send( fixed_bossData[i][0] + ' ' + basicSetting[1] + '분 전 ' + fixed_bossData[i][3] +' [' +  fixed_bossTime[i].strftime('%H:%M:%S') + ']', tts=False)
-							await PlaySound(voice_client1, './sound/' + fixed_bossData[i][0] + '알림.mp3')
+							#await PlaySound(voice_client1, './sound/' + fixed_bossData[i][0] + '알림.mp3')
 				
 				################ 보스 젠 시간 확인 ################
 				if fixed_bossTime[i] <= now :
@@ -354,7 +354,7 @@ async def task():
 							color=0x00ff00
 							)
 					await client.get_channel(channel).send(embed=embed, tts=False)
-					await PlaySound(voice_client1, './sound/' + fixed_bossData[i][0] + '젠.mp3')
+					#await PlaySound(voice_client1, './sound/' + fixed_bossData[i][0] + '젠.mp3')
 
 			################ 일반 보스 확인 ################ 
 			for i in range(bossNum):
@@ -364,7 +364,7 @@ async def task():
 						if bossFlag0[i] == False:
 							bossFlag0[i] = True
 							await client.get_channel(channel).send("```" + bossData[i][0] + ' ' + basicSetting[3] + '분 전 ' + bossData[i][3] + " [" +  bossTimeString[i] + "]```", tts=False)
-							await PlaySound(voice_client1, './sound/' + bossData[i][0] + '알림1.mp3')
+							#await PlaySound(voice_client1, './sound/' + bossData[i][0] + '알림1.mp3')
 
 				################ before_alert ################
 				if bossTime[i] <= priv and bossTime[i] > now:
@@ -372,7 +372,7 @@ async def task():
 						if bossFlag[i] == False:
 							bossFlag[i] = True
 							await client.get_channel(channel).send("```" + bossData[i][0] + ' ' + basicSetting[1] + '분 전 ' + bossData[i][3] + " [" +  bossTimeString[i] + "]```", tts=False)
-							await PlaySound(voice_client1, './sound/' + bossData[i][0] + '알림.mp3')
+							#await PlaySound(voice_client1, './sound/' + bossData[i][0] + '알림.mp3')
 
 				################ 보스 젠 시간 확인 ################ 
 				if bossTime[i] <= now :
@@ -389,7 +389,7 @@ async def task():
 							color=0x00ff00
 							)
 					await client.get_channel(channel).send(embed=embed, tts=False)
-					await PlaySound(voice_client1, './sound/' + bossData[i][0] + '젠.mp3')
+					#await PlaySound(voice_client1, './sound/' + bossData[i][0] + '젠.mp3')
 
 				################ 보스 자동 멍 처리 ################ 
 				if bossMungFlag[i] == True:
@@ -398,7 +398,7 @@ async def task():
 							################ 미입력 보스 ################
 							if bossData[i][2] == '0':
 								await client.get_channel(channel).send("```" +  bossData[i][0] + ' 미입력 됐습니다.```', tts=False)
-								await PlaySound(voice_client1, './sound/' + bossData[i][0] + '미입력.mp3')
+								#await PlaySound(voice_client1, './sound/' + bossData[i][0] + '미입력.mp3')
 								bossFlag[i] = False
 								bossFlag0[i] = False
 								bossMungFlag[i] = False
@@ -415,7 +415,7 @@ async def task():
 							################ 멍 보스 ################
 							else :
 								await client.get_channel(channel).send("```" + bossData[i][0] + ' 멍 입니다.```')
-								await PlaySound(voice_client1, './sound/' + bossData[i][0] + '멍.mp3')
+								#await PlaySound(voice_client1, './sound/' + bossData[i][0] + '멍.mp3')
 								bossFlag[i] = False
 								bossFlag0[i] = False
 								bossMungFlag[i] = False
@@ -565,11 +565,11 @@ async def JointheVC(VCchannel, TXchannel):
 				await voice_client1.disconnect()
 				voice_client1 = await VCchannel.connect(reconnect=True)
 			chkvoicechannel = 1
-			await PlaySound(voice_client1, './sound/hello.mp3')
+			#await PlaySound(voice_client1, './sound/hello.mp3')
 		else :
 			await voice_client1.disconnect()
 			voice_client1 = await VCchannel.connect(reconnect=True)
-			await PlaySound(voice_client1, './sound/hello.mp3')
+			#await PlaySound(voice_client1, './sound/hello.mp3')
 	else:
 		await TXchannel.send('음성채널에 먼저 들어가주세요.', tts=False)
 
@@ -1096,7 +1096,7 @@ while True:
 				sayMessage = tmp_sayMessage[3:]
 				await MakeSound(message.author.display_name +'님이.' + sayMessage, './sound/say')
 				await client.get_channel(channel).send("```< " + msg.author.display_name + " >님이 \"" + sayMessage + "\"```", tts=False)
-				await PlaySound(voice_client1, './sound/say.mp3')
+				#await PlaySound(voice_client1, './sound/say.mp3')
 
 			##################################
 
