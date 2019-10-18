@@ -560,18 +560,18 @@ async def JointheVC(VCchannel, TXchannel):
 
 	if VCchannel is not None:
 		if chkvoicechannel == 0:
-			voice_client1 = await VCchannel.connect(reconnect=True)
+			voice_client1 = await (5,VCchannel.connect(reconnect=True))
 			if voice_client1.is_connected():
-				await voice_client1.disconnect()
-				voice_client1 = await VCchannel.connect(reconnect=True)
+				await (5,voice_client1.disconnect())
+				voice_client1 = await (5,VCchannel.connect(reconnect=True))
 			chkvoicechannel = 1
 			#await PlaySound(voice_client1, './sound/hello.mp3')
 		else :
-			await voice_client1.disconnect()
-			voice_client1 = await VCchannel.connect(reconnect=True)
+			await (5,voice_client1.disconnect())
+			voice_client1 = await (5,VCchannel.connect(reconnect=True))
 			#await PlaySound(voice_client1, './sound/hello.mp3')
 	else:
-		await TXchannel.send('음성채널에 먼저 들어가주세요.', tts=False)
+		await (5,TXchannel.send('음성채널에 먼저 들어가주세요.', tts=False))
 
 #사다리함수
 async def LadderFunc(number, ladderlist, channelVal):
@@ -583,7 +583,7 @@ async def LadderFunc(number, ladderlist, channelVal):
 			description= '```' + result_ladderSTR + '```',
 			color=0xff00ff
 			)
-		await channelVal.send(embed=embed, tts=False)
+		await ,channelVal.send(embed=embed, tts=False)
 	else:
 		await channelVal.send('```추첨인원이 총 인원과 같거나 많습니다. 재입력 해주세요```', tts=False)
 
